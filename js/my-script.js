@@ -33,12 +33,13 @@ var time_left = 30
 
 setInterval(timer , 1000)
 
-var countdown = function timer(){
+function timer(){
     if (time_left <= 0){
-        clearInterval(countdown)
-    }
+        output.innerHTML = 'test'
+    }else{
     output.innerHTML = 30 - time_left
-    time_left--
+    time_left-=1
+}
 }
 
 
