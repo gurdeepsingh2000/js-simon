@@ -59,7 +59,7 @@ while(user_number.length < 5){
     }
 
 
-},5000)
+},30000)
 
 
 
