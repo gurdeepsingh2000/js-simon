@@ -5,8 +5,10 @@ Dopo 30 secondi l’utente deve inserire, uno alla volta, i numeri che ha visto 
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 */
 
-//    1. GENERO 5 NUMERI CON UN CICLO FOR PER 5 VOLTE POI ASSEGNARLI AD UN SOLO ALERT.
+var output = document.getElementById('text')
 
+
+//    1. GENERO 5 NUMERI CON UN CICLO FOR PER 5 VOLTE POI ASSEGNARLI AD UN SOLO ALERT.
 function randomNum(min,max){
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -16,14 +18,42 @@ function randomNum(min,max){
 var generated_numbers = []
 
 // 3.GENERO PER 5 VOLTE I NUMERI DA INSERIRE NELL'ARRAY PER POI MOSTRARLI NELL'ALERT
-var len = generated_numbers.length
 
-while(len < 5){
+while(generated_numbers.length < 5){
     var randomizedNum = randomNum(1,50);
     if(!generated_numbers.includes(randomizedNum)){
         generated_numbers.push(randomizedNum)
     }
 }
 
-alert(generated_numbers)
+
+alert('Memorizza questi numeri ' + generated_numbers)
+
+var time_left = 30
+
+setInterval(timer , 1000)
+
+var countdown = function timer(){
+    if (time_left <= 0){
+        clearInterval(countdown)
+    }
+    output.innerHTML = 30 - time_left
+    time_left--
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
