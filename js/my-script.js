@@ -13,9 +13,13 @@ function randomNum(min,max){
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-// 2. PREPARO UN'ARRAY DOVE I NUMERI GENERATI CASUALMENTE VERRANNO PUSHATI AL SUO INTERNO COSI IL PROGRAMMA CONTROLLERA SE IL NUMERO INSERITO DALL'UTENTE E IL NUMERO ALL'INTERNO DI QUESTO ARRAY SONO UGUALI.
+// 2. PREPARO DUE ARRAY DOVE I NUMERI GENERATI E INSERITI DALL'UTENTE VERRANNO PUSHATI AL SUO INTERNO COSI IL PROGRAMMA CONTROLLERA SE IL NUMERO INSERITI SONO UGUALI
 
 var generated_numbers = []
+var user_number = []
+
+// 2.1 IN QUESTA ARRAY VERRANNO PUSHATI I NUMERI CHE SONO UGUALI FRA generated_numbers E ser_number
+var right_numbers = []
 
 // 3.GENERO PER 5 VOLTE I NUMERI DA INSERIRE NELL'ARRAY PER POI MOSTRARLI NELL'ALERT
 
@@ -29,18 +33,34 @@ while(generated_numbers.length < 5){
 
 alert('Memorizza questi numeri ' + generated_numbers)
 
-var time_left = 30
 
-setInterval(timer , 1000)
-
-function timer(){
-    if (time_left <= 0){
-        output.innerHTML = 'test'
+setTimeout (function(){
+while(user_number.length < 5){
+    var num_request = parseInt(prompt('Inserisci un numero'))
+    if(isNaN(num_request) || num_request < 1 || num_request > 50){
+        alert('devi inserire dei numeri fra 1 e 50')
+    var num_request = parseInt(prompt('Inserisci un numero'))
     }else{
-    output.innerHTML = 30 - time_left
-    time_left-=1
+        user_number.push(num_request)
+    }
+
+    if (generated_numbers.includes(num_request)){
+        right_numbers.push(num_request)
+    }
 }
-}
+    if(right_numbers.length > 0){
+        output.innerHTML = 'Hai indovinato ' + right_numbers.length + 'numeri eccoli ' + right_numbers 
+    }
+ 
+    if (right_numbers.length === 5) {
+        output.innerHTML = 'Complimenti hai vinto hai ecco i tuo numeri! '  + rightNumbers;
+    }else{
+        output.innerHTML = 'Mi dispiace hai perso non hai indovinato nessun numero';
+    }
+
+
+},5000)
+
 
 
 
