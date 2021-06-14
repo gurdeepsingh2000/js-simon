@@ -17,11 +17,10 @@ var generated_numbers = []
 
 // 3.GENERO PER 5 VOLTE I NUMERI DA INSERIRE NELL'ARRAY PER POI MOSTRARLI NELL'ALERT
 var len = generated_numbers.length
-for(var x = 0; len < 5 ; x++){
+while(len < 5){
     var randomizedNum = randomNum(1,50);
     if(!generated_numbers.includes(randomizedNum)){
         generated_numbers.push(randomizedNum)
     }
 }
 
-alert('TEST ' + generated_numbers)
